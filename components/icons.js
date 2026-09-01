@@ -27,3 +27,22 @@ export function ChevronIcon({ className }) {
     </svg>
   );
 }
+
+export function MenuIcon({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round">
+      <path d="M3 6.5q4-1 9 0t9 0" />
+      <path d="M3 12q4.5 1 9 0t9 0" />
+      <path d="M3 17.5q4-1 9 0t9 0" />
+    </svg>
+  );
+}
+
+export function CloseIcon({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round">
+      <path d="M5 5q7 7 14 14" />
+      <path d="M19 5q-7 7-14 14" />
+    </svg>
+  );
+}
