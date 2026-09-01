@@ -6,15 +6,31 @@ export default function BookSpine({ book }) {
   return (
     <InfoPopover
       title={book.title}
+      placement="right"
       trigger={(triggerProps) => (
         <button
           type="button"
           {...triggerProps}
-          style={{ backgroundColor: book.color, height: book.height, width: book.width }}
-          className="flex items-end justify-center overflow-hidden rounded-t-sm border border-black/20 pb-2 shadow-sm transition-transform hover:-translate-y-1"
+          style={{ height: book.height, width: book.width }}
+          className="relative block overflow-hidden rounded-t-sm shadow-sm transition-transform hover:-translate-y-1"
         >
+          <svg viewBox={`0 0 ${book.width} ${book.height}`} className="h-full w-full">
+            <rect
+              x="1"
+              y="1"
+              width={book.width - 2}
+              height={book.height - 2}
+              rx="2"
+              fill={book.color}
+              stroke="rgba(255,255,255,0.6)"
+              strokeWidth="1"
+              strokeDasharray="3 2"
+            />
+            <line x1="4" y1="5" x2={book.width - 4} y2="5" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+            <line x1="4" y1="8" x2={book.width - 4} y2="8" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+          </svg>
           <span
-            className="whitespace-nowrap font-heading text-[10px] font-bold text-background"
+            className="absolute inset-0 flex items-center justify-center whitespace-nowrap font-heading text-sm font-bold text-background"
             style={{ writingMode: "vertical-rl" }}
           >
             {book.title}

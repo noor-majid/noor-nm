@@ -29,11 +29,11 @@ const ICONS = {
   ),
 };
 
-export default function Postcard({ variant, filled, color, delay = 0, style, className = "" }) {
+export default function Postcard({ variant, filled, color, delay = 0, rotate = 0, posClassName = "", className = "" }) {
   return (
     <div
-      style={style}
-      className={`pointer-events-none absolute h-24 w-32 rounded-sm border border-foreground/30 bg-background/95 p-2 shadow-lg ${className}`}
+      style={{ transform: `rotate(${rotate}deg)` }}
+      className={`pointer-events-none absolute h-16 w-20 rounded-sm border border-foreground/30 bg-background/95 p-1.5 shadow-lg sm:h-24 sm:w-32 sm:p-2 ${posClassName} ${className}`}
     >
       <svg viewBox="0 0 64 48" className="h-full w-full text-foreground/70" fill="none" stroke="currentColor">
         <rect x="1" y="1" width="62" height="46" rx="2" strokeDasharray="3 2" strokeWidth={1} />

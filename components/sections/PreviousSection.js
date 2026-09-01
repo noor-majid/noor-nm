@@ -1,7 +1,6 @@
 import PageContainer from "@/components/PageContainer";
 import PageHeading from "@/components/PageHeading";
 import SectionList from "@/components/SectionList";
-import Squiggle from "@/components/Squiggle";
 import Bookshelf from "@/components/Bookshelf";
 import { previous, books } from "@/lib/data";
 
@@ -10,7 +9,6 @@ export default function PreviousSection() {
     <section id="previous" className="scroll-mt-20">
       <PageContainer>
         <PageHeading>Previous</PageHeading>
-        <Squiggle />
         <SectionList heading="Work" items={previous.work} />
         <SectionList heading="Projects" items={previous.projects} />
         <div className="mb-12">

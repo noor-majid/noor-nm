@@ -10,7 +10,7 @@ export default function HomeSection() {
         <div className="max-w-md text-center">
           <h1 className="mb-4 font-script text-6xl sm:text-7xl">Noor Majid</h1>
           <p className="font-serif text-lg text-foreground/90">
-            Software engineer, violinist, reader, aspiring crocheter, terrible
+            Software engineer, violinist, reader, aspiring crocheter, okayish
             golfer, lover of cats.
           </p>
         </div>

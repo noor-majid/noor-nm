@@ -8,25 +8,25 @@ const POSTCARDS = [
     variant: "violin",
     color: "#9c8867", // warm sand
     rot: -8,
-    style: { top: "-4.5rem", left: "-7.5rem" },
+    posClassName: "top-[-4.5rem] left-[-1.5rem] sm:top-[-7rem] sm:left-[-3rem]",
   },
   {
     variant: "cat",
     color: "#8a95a6", // dusty slate blue
     rot: 6,
-    style: { top: "-3.5rem", right: "-8rem" },
+    posClassName: "top-[-4rem] right-[-2rem] sm:top-[-6.5rem] sm:right-[-3.5rem]",
   },
   {
     variant: "book",
     color: "#8a9a82", // sage
     rot: 5,
-    style: { bottom: "-4.5rem", left: "-8.5rem" },
+    posClassName: "bottom-[-4.5rem] left-[-2rem] sm:bottom-[-7rem] sm:left-[-3.5rem]",
   },
   {
     variant: "yarn",
     color: "#b08a8a", // dusty rose
     rot: -6,
-    style: { bottom: "-3.5rem", right: "-7rem" },
+    posClassName: "bottom-[-4rem] right-[-1.5rem] sm:bottom-[-6.5rem] sm:right-[-3rem]",
   },
 ];
 
@@ -54,8 +54,8 @@ export default function PostcardStack({ children }) {
           filled={filled}
           color={card.color}
           delay={i * 120}
-          className="hidden sm:block"
-          style={{ ...card.style, transform: `rotate(${card.rot}deg)` }}
+          rotate={card.rot}
+          posClassName={card.posClassName}
         />
       ))}
     </div>

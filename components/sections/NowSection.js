@@ -1,7 +1,8 @@
 import PageContainer from "@/components/PageContainer";
 import PageHeading from "@/components/PageHeading";
 import SectionList from "@/components/SectionList";
-import { now } from "@/lib/data";
+import BookStack from "@/components/BookStack";
+import { now, nowReading } from "@/lib/data";
 
 export default function NowSection() {
   return (
@@ -9,7 +10,10 @@ export default function NowSection() {
       <PageContainer>
         <PageHeading>Now</PageHeading>
         <SectionList heading="Work" items={now.work} />
-        <SectionList heading="Reading" items={now.reading} />
+        <div className="mb-12">
+          <h2 className="mb-4 font-heading text-xl font-bold">Reading</h2>
+          <BookStack books={nowReading} />
+        </div>
         <SectionList heading="Projects" items={now.projects} />
       </PageContainer>
     </section>
