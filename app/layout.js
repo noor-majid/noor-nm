@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
+import CursorDots from "@/components/CursorDots";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +13,23 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const newRomantics = localFont({
+  src: "./fonts/NewRomantics.ttf",
+  variable: "--font-new-romantics",
+  display: "swap",
+});
+const appleGaramond = localFont({
+  src: [
+    { path: "./fonts/AppleGaramond-Light.ttf", weight: "300", style: "normal" },
+    { path: "./fonts/AppleGaramond-LightItalic.ttf", weight: "300", style: "italic" },
+    { path: "./fonts/AppleGaramond.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/AppleGaramond-Italic.ttf", weight: "400", style: "italic" },
+    { path: "./fonts/AppleGaramond-Bold.ttf", weight: "700", style: "normal" },
+    { path: "./fonts/AppleGaramond-BoldItalic.ttf", weight: "700", style: "italic" },
+  ],
+  variable: "--font-apple-garamond",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Noor Majid",
@@ -21,9 +40,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${newRomantics.variable} ${appleGaramond.variable} font-serif antialiased`}
       >
-        {children}
+        <CursorDots />
+        <NavBar />
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );
