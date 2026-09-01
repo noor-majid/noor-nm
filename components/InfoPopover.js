@@ -54,7 +54,7 @@ export default function InfoPopover({ trigger, title, children, panelClassName =
           role="dialog"
           className={`absolute z-20 w-56 rounded-md border border-foreground/15 bg-background px-3 py-2 text-sm shadow-lg ${
             placement === "right"
-              ? "left-full top-1/2 ml-2 -translate-y-1/2"
+              ? "left-1/2 top-full mt-2 -translate-x-1/2 sm:left-full sm:top-1/2 sm:mt-0 sm:ml-2 sm:translate-x-0 sm:-translate-y-1/2"
               : "left-1/2 top-full mt-2 -translate-x-1/2"
           } ${panelClassName}`}
         >

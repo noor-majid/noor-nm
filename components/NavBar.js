@@ -96,26 +96,29 @@ export default function NavBar() {
           </button>
         </div>
       </nav>
-      {menuOpen && (
-        <ul className="flex flex-col gap-1 border-t border-foreground/10 px-6 py-4 font-heading text-sm sm:hidden">
-          {NAV_LINKS.map((link) => {
-            const active = activeId === link.href.slice(1);
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`block py-1.5 ${
-                    active ? "underline underline-offset-4" : "text-foreground/70"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      <ul
+        className={`flex flex-col overflow-hidden px-6 font-heading text-sm transition-all duration-300 ease-out sm:hidden ${
+          menuOpen ? "max-h-56 gap-1 py-4 opacity-100" : "max-h-0 gap-0 py-0 opacity-0"
+        }`}
+      >
+        {NAV_LINKS.map((link) => {
+          const active = activeId === link.href.slice(1);
+          return (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                tabIndex={menuOpen ? 0 : -1}
+                onClick={() => setMenuOpen(false)}
+                className={`block py-1.5 ${
+                  active ? "underline underline-offset-4" : "text-foreground/70"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </header>
   );
 }

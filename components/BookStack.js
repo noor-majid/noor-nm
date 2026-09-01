@@ -21,13 +21,13 @@ function StackedBook({ book }) {
               height="42"
               rx="3"
               fill={book.color}
-              stroke="rgba(0,0,0,0.35)"
+              stroke="rgba(255,255,255,0.6)"
               strokeWidth="1"
               strokeDasharray="3 2"
             />
-            <line x1="166" y1="6" x2="166" y2="38" stroke="rgba(0,0,0,0.25)" strokeWidth="1" />
-            <line x1="172" y1="6" x2="172" y2="38" stroke="rgba(0,0,0,0.25)" strokeWidth="1" />
-            <line x1="178" y1="6" x2="178" y2="38" stroke="rgba(0,0,0,0.25)" strokeWidth="1" />
+            <line x1="166" y1="6" x2="166" y2="38" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+            <line x1="172" y1="6" x2="172" y2="38" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+            <line x1="178" y1="6" x2="178" y2="38" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
           </svg>
           <span className="absolute left-4 top-1/2 -translate-y-1/2 truncate font-heading text-xs font-bold text-background">
             {book.title}
@@ -43,7 +43,7 @@ function StackedBook({ book }) {
 
 export default function BookStack({ books }) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col items-start gap-1">
       {books.map((book) => (
         <StackedBook key={book.id} book={book} />
       ))}

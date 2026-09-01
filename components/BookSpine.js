@@ -22,12 +22,12 @@ export default function BookSpine({ book }) {
               height={book.height - 2}
               rx="2"
               fill={book.color}
-              stroke="rgba(0,0,0,0.35)"
+              stroke="rgba(255,255,255,0.6)"
               strokeWidth="1"
               strokeDasharray="3 2"
             />
-            <line x1="4" y1="5" x2={book.width - 4} y2="5" stroke="rgba(0,0,0,0.2)" strokeWidth="1" />
-            <line x1="4" y1="8" x2={book.width - 4} y2="8" stroke="rgba(0,0,0,0.2)" strokeWidth="1" />
+            <line x1="4" y1="5" x2={book.width - 4} y2="5" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+            <line x1="4" y1="8" x2={book.width - 4} y2="8" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
           </svg>
           <span
             className="absolute inset-0 flex items-center justify-center whitespace-nowrap font-heading text-sm font-bold text-background"
