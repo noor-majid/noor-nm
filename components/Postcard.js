@@ -29,7 +29,7 @@ const ICONS = {
   ),
 };
 
-export default function Postcard({ variant, style, className = "" }) {
+export default function Postcard({ variant, filled, color, delay = 0, style, className = "" }) {
   return (
     <div
       style={style}
@@ -38,7 +38,15 @@ export default function Postcard({ variant, style, className = "" }) {
       <svg viewBox="0 0 64 48" className="h-full w-full text-foreground/70" fill="none" stroke="currentColor">
         <rect x="1" y="1" width="62" height="46" rx="2" strokeDasharray="3 2" strokeWidth={1} />
         <rect x="46" y="4" width="12" height="14" strokeWidth={1} />
-        <g transform="translate(-2, 4) scale(0.55)">{ICONS[variant]}</g>
+        <g
+          transform="translate(-2, 4) scale(0.55)"
+          style={{
+            fill: filled ? color : "transparent",
+            transition: `fill 700ms ease ${delay}ms`,
+          }}
+        >
+          {ICONS[variant]}
+        </g>
         <path d="M8 38h20M8 42h14" strokeWidth={1} strokeLinecap="round" opacity={0.5} />
       </svg>
     </div>

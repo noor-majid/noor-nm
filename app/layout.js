@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import CursorDots from "@/components/CursorDots";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,8 +42,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${newRomantics.variable} ${appleGaramond.variable} font-serif antialiased`}
       >
+        <CursorDots />
         <NavBar />
-        {children}
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );

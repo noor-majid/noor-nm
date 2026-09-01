@@ -4,21 +4,42 @@ import { useEffect, useState } from "react";
 import Postcard from "./Postcard";
 
 const POSTCARDS = [
-  { variant: "violin", rot: -9, restX: -230, restY: -30 },
-  { variant: "cat", rot: 7, restX: 220, restY: 20 },
-  { variant: "book", rot: 5, restX: -190, restY: 110 },
-  { variant: "yarn", rot: -6, restX: 200, restY: -110 },
+  {
+    variant: "violin",
+    color: "#9c8867", // warm sand
+    rot: -8,
+    style: { top: "-4.5rem", left: "-7.5rem" },
+  },
+  {
+    variant: "cat",
+    color: "#8a95a6", // dusty slate blue
+    rot: 6,
+    style: { top: "-3.5rem", right: "-8rem" },
+  },
+  {
+    variant: "book",
+    color: "#8a9a82", // sage
+    rot: 5,
+    style: { bottom: "-4.5rem", left: "-8.5rem" },
+  },
+  {
+    variant: "yarn",
+    color: "#b08a8a", // dusty rose
+    rot: -6,
+    style: { bottom: "-3.5rem", right: "-7rem" },
+  },
 ];
 
 const SCROLL_THRESHOLD = 48;
 
 export default function PostcardStack({ children }) {
-  const [scrolled, setScrolled] = useState(false);
+  const [filled, setFilled] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
-      setScrolled(window.scrollY > SCROLL_THRESHOLD);
+      setFilled(window.scrollY > SCROLL_THRESHOLD);
     }
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,22 +47,17 @@ export default function PostcardStack({ children }) {
   return (
     <div className="relative flex items-center justify-center">
       {children}
-      {POSTCARDS.map((card, i) => {
-        const offsetX = scrolled ? card.restX : 0;
-        const offsetY = scrolled ? card.restY : 0;
-        return (
-          <Postcard
-            key={i}
-            variant={card.variant}
-            style={{
-              top: "50%",
-              left: "50%",
-              transform: `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) rotate(${card.rot}deg)`,
-              transition: "transform 700ms cubic-bezier(0.16, 1, 0.3, 1)",
-            }}
-          />
-        );
-      })}
+      {POSTCARDS.map((card, i) => (
+        <Postcard
+          key={card.variant}
+          variant={card.variant}
+          filled={filled}
+          color={card.color}
+          delay={i * 120}
+          className="hidden sm:block"
+          style={{ ...card.style, transform: `rotate(${card.rot}deg)` }}
+        />
+      ))}
     </div>
   );
 }

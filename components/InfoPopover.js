@@ -1,18 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-let popoverIdCounter = 0;
+import { useEffect, useId, useRef, useState } from "react";
 
 export default function InfoPopover({ trigger, title, children, panelClassName = "" }) {
   const [hovered, setHovered] = useState(false);
   const [pinned, setPinned] = useState(false);
   const containerRef = useRef(null);
-  const idRef = useRef(null);
-  if (idRef.current === null) {
-    popoverIdCounter += 1;
-    idRef.current = `info-popover-${popoverIdCounter}`;
-  }
+  const popoverId = useId();
 
   const open = hovered || pinned;
 
@@ -48,12 +42,12 @@ export default function InfoPopover({ trigger, title, children, panelClassName =
       onBlur={() => setHovered(false)}
     >
       {trigger({
-        "aria-describedby": idRef.current,
+        "aria-describedby": popoverId,
         onClick: () => setPinned((p) => !p),
       })}
       {open && (
         <div
-          id={idRef.current}
+          id={popoverId}
           role="dialog"
           className={`absolute left-1/2 top-full z-20 mt-2 w-56 -translate-x-1/2 rounded-md border border-foreground/15 bg-background px-3 py-2 text-sm shadow-lg ${panelClassName}`}
         >

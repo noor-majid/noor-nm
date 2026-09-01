@@ -8,6 +8,10 @@
   --dot-color: rgba(237, 237, 237, 0.09);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background-color: var(--background);
