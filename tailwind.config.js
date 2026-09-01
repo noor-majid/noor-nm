@@ -11,6 +11,11 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        script: ["var(--font-new-romantics)", "Snell Roundhand", "Brush Script MT", "cursive"],
+        serif: ["var(--font-apple-garamond)", "Garamond", "Georgia", "serif"],
+        heading: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
     },
   },
   plugins: [],

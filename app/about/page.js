@@ -1,12 +1,11 @@
-import Link from "next/link";
+import PageContainer from "@/components/PageContainer";
+import PageHeading from "@/components/PageHeading";
 
 export default function About() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 sm:p-20 font-[family-name:var(--font-geist-mono)]">
-      <main className="flex flex-col items-center justify-center row-start-2">
-        <div>Under construction! -Noor</div>
-        <Link href="/">Back to Home</Link>
-      </main>
-    </div>
+    <PageContainer>
+      <PageHeading>About</PageHeading>
+      <p className="font-serif text-foreground/90">More coming soon.</p>
+    </PageContainer>
   );
 }
